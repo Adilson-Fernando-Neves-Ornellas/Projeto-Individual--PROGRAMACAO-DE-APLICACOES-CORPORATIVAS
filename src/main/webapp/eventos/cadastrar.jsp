@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Projeto Individual - Adilson Fernando</title>
+    <title>Cadastar Evento - Projeto Individual - Adilson Fernando</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -50,8 +50,8 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 content">
-            <h2>Bem-vindo!</h2>
-            <p>Use o menu à esquerda para navegar pelas seções administrativas do sistema de bilheteria.</p>
+            <h2>Cadastro de Evento!</h2>
+
         </main>
     </div>
 </div>
