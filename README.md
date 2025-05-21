@@ -10,7 +10,7 @@ Projeto realizado para a disciplina **Programação de Aplicações Corporativas
 
 ## 📌 Funcionalidades
 
-- ✅ Gerenciamento de Clientes (CRUD básico)  
+- ✅ Gerenciamento de Clientes (Somente o Incluir)  
 - ✅ Registro, listagem e exclusão de Compras com filtros  
 - 🎨 Interface responsiva com Bootstrap 5
 
