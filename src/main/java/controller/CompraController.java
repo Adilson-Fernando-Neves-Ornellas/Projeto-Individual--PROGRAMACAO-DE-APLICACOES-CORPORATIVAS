@@ -19,7 +19,7 @@ import model.Evento;
 import model.Compra;
 import model.Cliente;
 
-@WebServlet(urlPatterns = { "/compras", "/compras/cadastrar" })
+@WebServlet(urlPatterns = { "/compras", "/compras/cadastrar", "/compras/excluir" })
 public class CompraController extends HttpServlet {
 
     @Override
@@ -70,7 +70,7 @@ public class CompraController extends HttpServlet {
             EventoDao eventoDao = new EventoDao();
             try {
                 List<Cliente> clientes = clienteDao.listarTodos();
-                List<Evento> eventos = eventoDao.listarTodos(); // crie esse método
+                List<Evento> eventos = eventoDao.listarTodos();
 
                 request.setAttribute("clientes", clientes);
                 request.setAttribute("eventos", eventos);
@@ -79,22 +79,31 @@ public class CompraController extends HttpServlet {
             }
             RequestDispatcher rd = request.getRequestDispatcher("/compras/cadastrar.jsp");
             rd.forward(request, response);
+
+        } else if (path.equals("/compras/excluir")) {
+            String idStr = request.getParameter("id");
+
+            if (idStr != null && !idStr.isEmpty()) {
+                int id = Integer.parseInt(idStr);
+                try {
+                    CompraDao compraDao = new CompraDao();
+                    compraDao.excluir(id);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            response.sendRedirect("../compras");
+
         } else {
-            // Seu código atual de listar compras (copiar daqui para baixo)
+
             CompraDao compraDao = new CompraDao();
             List<Compra> compras = null;
 
-            String filtroStatus = request.getParameter("status");
-            String filtroClienteId = request.getParameter("clienteId");
+            String nomeCliente = request.getParameter("nomeCliente");
 
             try {
-                if (filtroStatus != null && !filtroStatus.isEmpty() && filtroClienteId != null
-                        && !filtroClienteId.isEmpty()) {
-                    compras = compraDao.listarPorStatusECliente(filtroStatus, Integer.parseInt(filtroClienteId));
-                } else if (filtroStatus != null && !filtroStatus.isEmpty()) {
-                    compras = compraDao.listarPorStatus(filtroStatus);
-                } else if (filtroClienteId != null && !filtroClienteId.isEmpty()) {
-                    compras = compraDao.listarPorCliente(Integer.parseInt(filtroClienteId));
+                if (nomeCliente != null && !nomeCliente.isEmpty()) {
+                    compras = compraDao.listarPorNomeCliente(nomeCliente);
                 } else {
                     compras = compraDao.listarTodos();
                 }

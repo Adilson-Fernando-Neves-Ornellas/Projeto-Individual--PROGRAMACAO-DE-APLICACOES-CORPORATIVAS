@@ -52,11 +52,22 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 content">
             <h2>Listagem de Compras!</h2>
 
-            <div class="mb-3 text-end">
-                <a href="./compras/cadastrar" class="btn btn-primary">
-                    + Incluir Nova Compra
-                </a>
-            </div>
+            <form method="get" action="compras" class="d-flex justify-content-between">
+                <div class="col-md-6 d-flex justify-content-center gap-2">
+                    <div class="col-md-10">
+                        <input type="text" name="nomeCliente" class="form-control" placeholder="Buscar nome do cliente" value="${param.nomeCliente}">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-outline-primary">🔍</button>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <a href="./compras/cadastrar" class="btn btn-primary">
+                        + Incluir Nova Compra
+                    </a>
+                </div>
+            </form>
+
 
             <div class="table-responsive">
                 <table class="table table-bordered table-striped mt-3">
@@ -67,6 +78,7 @@
                             <th>Forma Pagamento</th>
                             <th>Valor</th>
                             <th>Status</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +89,12 @@
                                 <td><c:out value="${compra.formaPagamento}" /></td>
                                 <td><c:out value="${compra.valor}" /></td>
                                 <td><c:out value="${compra.status}" /></td>
+                                <td>
+                                    <form action="/projeto_adilson/compras/excluir" method="get" onsubmit="return confirm('Tem certeza que deseja excluir esta compra?');">
+                                        <input type="hidden" name="id" value="${compra.id}" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                    </form>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
