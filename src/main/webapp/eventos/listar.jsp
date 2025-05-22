@@ -77,7 +77,7 @@
                                         <td><c:out value="${evento.dataHoraInicio}" /></td>
                                         <td><c:out value="${evento.dataHoraFim}" /></td>
                                         <td><c:out value="${evento.capacidade}" /></td>
-                                        <td>R$<c:out value="${evento.valorIngresso}" />0</td>
+                                        <td>R$<c:out value="${evento.valorIngresso}" /></td>
                                     </tr>
                                 </c:forEach>
                             </c:when>

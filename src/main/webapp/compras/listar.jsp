@@ -53,41 +53,32 @@
             <h2>Listagem de Compras!</h2>
 
             <div class="mb-3 text-end">
-                <a href="./compras/cadastrar.jsp" class="btn btn-primary">
+                <a href="./compras/cadastrar" class="btn btn-primary">
                     + Incluir Nova Compra
                 </a>
             </div>
 
             <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle">
+                <table class="table table-bordered table-striped mt-3">
                     <thead class="table-dark">
                         <tr>
                             <th>ID</th>
                             <th>Cliente</th>
-                            <th>Data da Compra</th>
-                            <th>Valor Total (R$)</th>
+                            <th>Forma Pagamento</th>
+                            <th>Valor</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:choose>
-                            <c:when test="${not empty compras}">
-                                <c:forEach var="compra" items="${compras}">
-                                    <tr>
-                                        <td><c:out value="${compra.id}" /></td>
-                                        <td><c:out value="${compra.cliente}" /></td>
-                                        <td><c:out value="${compra.dataCompra}" /></td>
-                                        <td><c:out value="${compra.valorTotal}" /></td>
-                                        <td><c:out value="${compra.status}" /></td>
-                                    </tr>
-                                </c:forEach>
-                            </c:when>
-                            <c:otherwise>
-                                <tr>
-                                    <td colspan="5" class="text-center">Nenhuma compra encontrada.</td>
-                                </tr>
-                            </c:otherwise>
-                        </c:choose>
+                        <c:forEach var="compra" items="${compras}">
+                            <tr>
+                                <td><c:out value="${compra.id}" /></td>
+                                <td><c:out value="${compra.cliente != null ? compra.cliente.nome : 'Cliente não informado'}" /></td>
+                                <td><c:out value="${compra.formaPagamento}" /></td>
+                                <td><c:out value="${compra.valor}" /></td>
+                                <td><c:out value="${compra.status}" /></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

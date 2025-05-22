@@ -49,7 +49,7 @@
             </div>
         </nav>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 content">
+<main class="col-md-9 ms-sm-auto col-lg-10 content">
             <h2>Listagem de Bilhetes!</h2>
 
             <div class="table-responsive">
@@ -59,8 +59,8 @@
                             <th>ID</th>
                             <th>Evento</th>
                             <th>Compra ID</th>
-                            <th>Preço</th>
-                            <th>Data da Compra</th>
+                            <th>Valor</th>
+                            <th>Cliente</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,14 +71,14 @@
                                         <td><c:out value="${bilhete.id}" /></td>
                                         <td><c:out value="${bilhete.evento.nome}" /></td>
                                         <td><c:out value="${bilhete.compra.id}" /></td>
-                                        <td>R$ <c:out value="${bilhete.preco}" /></td>
-                                        <td><c:out value="${bilhete.dataCompra}" /></td>
+                                        <td>R$ <c:out value="${bilhete.compra.valor}" /></td>
+                                        <td><c:out value="${bilhete.compra.cliente.nome}" /></td>
                                     </tr>
                                 </c:forEach>
                             </c:when>
                             <c:otherwise>
                                 <tr>
-                                    <td colspan="5" class="text-center">Nenhum bilhete encontrado.</td>
+                                    <td colspan="4" class="text-center">Nenhum bilhete encontrado.</td>
                                 </tr>
                             </c:otherwise>
                         </c:choose>

@@ -16,7 +16,7 @@ public class ClienteDao {
     private Connection con;
 
     public ClienteDao() {
-         con = DatabaseConnection.getConnection();
+        con = DatabaseConnection.getConnection();
     }
 
     public void inserir(Cliente cliente) throws SQLException {
@@ -53,4 +53,24 @@ public class ClienteDao {
         con.close();
         return clientes;
     }
+
+    public Cliente buscarPorId(int id) throws SQLException {
+        String sql = "SELECT id, nome FROM clientes WHERE id = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+
+        Cliente cliente = null;
+        if (rs.next()) {
+            cliente = new Cliente();
+            cliente.setId(rs.getInt("id"));
+            cliente.setNome(rs.getString("nome"));
+        }
+
+        stmt.close();
+        con.close();
+
+        return cliente;
+    }
+
 }

@@ -32,4 +32,13 @@ Projeto realizado para a disciplina **Programação de Aplicações Corporativas
 5. Abra o terminal na pasta do projeto.  
 6. Execute: "./deploy.bat"
 
-## ▶️ Caso não queira executar o projeto localmente, você pode conferir imagens do sistema em funcionamento na pasta docs/prints_funcionamento.
+## ▶️ Caso não queira executar o projeto localmente, você pode conferir imagens do sistema em funcionamento:
+![print_01](docs/prints_funcionamento/print_01.png)
+![print_02](docs/prints_funcionamento/print_02.png)
+![print_03](docs/prints_funcionamento/print_03.png)
+![print_04](docs/prints_funcionamento/print_04.png)
+![print_05](docs/prints_funcionamento/print_05.png)
+![print_06](docs/prints_funcionamento/print_06.png)
+![print_07](docs/prints_funcionamento/print_07.png)
+![print_08](docs/prints_funcionamento/print_08.png)
+
