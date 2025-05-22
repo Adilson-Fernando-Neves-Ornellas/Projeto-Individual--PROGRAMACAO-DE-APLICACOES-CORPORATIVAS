@@ -52,7 +52,7 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 content">
             <h2>Listagem de Eventos!</h2>
             <div class="mb-3 text-end">
-                <a href="" class="btn btn-primary">
+                <a href="./eventos/cadastrar.jsp" class="btn btn-primary">
                     + Incluir Novo Evento
                 </a>
             </div>

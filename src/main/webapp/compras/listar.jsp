@@ -50,10 +50,10 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 content">
-            <h2>Listagem de Compras</h2>
+            <h2>Listagem de Compras!</h2>
 
             <div class="mb-3 text-end">
-                <a href="./compras/incluir.jsp" class="btn btn-primary">
+                <a href="./compras/cadastrar.jsp" class="btn btn-primary">
                     + Incluir Nova Compra
                 </a>
             </div>

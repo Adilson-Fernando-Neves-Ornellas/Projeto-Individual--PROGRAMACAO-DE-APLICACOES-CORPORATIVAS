@@ -42,10 +42,10 @@
         <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar text-white">
             <div class="position-sticky">
                 <h4 class="text-center text-white mb-4">Bilheteria</h4>
-                <a href="./eventos">🎭 Eventos</a>
-                <a href="./bilhetes">🎫 Bilhetes</a>
-                <a href="./compras">🛒 Compras</a>
-                <a href="./clientes">👤 Clientes</a>
+                <a href="/projeto_adilson/eventos">🎭 Eventos</a>
+                <a href="/projeto_adilson/bilhetes">🎫 Bilhetes</a>
+                <a href="/projeto_adilson/compras">🛒 Compras</a>
+                <a href="/projeto_adilson/clientes">👤 Clientes</a>
             </div>
         </nav>
 
