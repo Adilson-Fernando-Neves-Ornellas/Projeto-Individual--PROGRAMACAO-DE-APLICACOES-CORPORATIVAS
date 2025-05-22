@@ -50,12 +50,51 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 content">
-            <h2>Cadastro de Evento!</h2>
+           <h2>Cadastro de Evento!</h2>
+            <form id="formEvento" action="/projeto_adilson/eventos" method="post" class="mt-4">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome do Evento</label>
+                    <input type="text" id="nome" name="nome" class="form-control" required maxlength="100" />
+                </div>
 
+                <div class="mb-3">
+                    <label for="dataHoraInicio" class="form-label">Data e Hora de Início</label>
+                    <input type="datetime-local" id="dataHoraInicio" name="dataHoraInicio" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="dataHoraFim" class="form-label">Data e Hora de Fim</label>
+                    <input type="datetime-local" id="dataHoraFim" name="dataHoraFim" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="capacidade" class="form-label">Capacidade</label>
+                    <input type="number" id="capacidade" name="capacidade" class="form-control" min="1" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="valorIngresso" class="form-label">Valor do Ingresso (R$)</label>
+                    <input type="number" id="valorIngresso" name="valorIngresso" class="form-control" min="0" step="0.01" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar Evento</button>
+                <a href="/projeto_adilson/eventos" class="btn btn-secondary ms-2">Voltar</a>
+            </form>
         </main>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('formEvento').addEventListener('submit', function(event) {
+        const inicio = document.getElementById('dataHoraInicio').value;
+        const fim = document.getElementById('dataHoraFim').value;
+
+        if (inicio && fim && fim < inicio) {
+            alert('A data e hora de fim não pode ser menor que a data e hora de início.');
+            event.preventDefault()
+        }
+    });
+</script>
 </body>
 </html>

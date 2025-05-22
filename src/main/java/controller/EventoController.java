@@ -47,7 +47,7 @@ public class EventoController extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("eventos?next=eventos.jsp"); // Após inserir, redireciona para listar
+        response.sendRedirect("eventos"); 
     }
 
     @Override

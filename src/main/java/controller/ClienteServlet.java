@@ -44,7 +44,7 @@ public class ClienteServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("clientes?next=clientes.jsp");
+        response.sendRedirect("clientes");
     }
 
     @Override

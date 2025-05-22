@@ -9,8 +9,10 @@ Projeto realizado para a disciplina **Programação de Aplicações Corporativas
 
 ## 📌 Funcionalidades
 
-- ✅ Gerenciamento de Clientes (Somente o Incluir)  
-- ✅ Registro, listagem e exclusão de Compras com filtros  
+- ✅ Gerenciamento de Bilhetes (Somente o listar)
+- ✅ Gerenciamento de Eventos (Somente o listar e Incluir)
+- ✅ Gerenciamento de Clientes (Somente o listar e Incluir)
+- ✅ Gerenciamento de Compras (Somente listar, listar com busca, Incluir e exclusão)
 - 🎨 Interface responsiva com Bootstrap 5
 
 ## 🚀 Requisitos para rodar o projeto

@@ -52,12 +52,6 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 content">
             <h2>Listagem de Bilhetes!</h2>
 
-            <div class="mb-3 text-end">
-                <a href="./bilhetes/cadastrar.jsp" class="btn btn-primary">
-                    + Incluir Novo Bilhete
-                </a>
-            </div>
-
             <div class="table-responsive">
                 <table class="table table-striped table-hover align-middle">
                     <thead class="table-dark">

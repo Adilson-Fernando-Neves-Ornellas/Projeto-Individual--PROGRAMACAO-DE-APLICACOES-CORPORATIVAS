@@ -66,30 +66,27 @@
                             <th>Nome</th>
                             <th>CPF</th>
                             <th>Data de Nascimento</th>
-                            <th>E-mail</th>
                             <th>Telefone</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:choose>
-                            <c:when test="${not empty clientes}">
-                                <c:forEach var="cliente" items="${clientes}">
-                                    <tr>
-                                        <td><c:out value="${cliente.id}" /></td>
-                                        <td><c:out value="${cliente.nome}" /></td>
-                                        <td><c:out value="${cliente.cpf}" /></td>
-                                        <td><c:out value="${cliente.dataNascimento}" /></td>
-                                        <td><c:out value="${cliente.email}" /></td>
-                                        <td><c:out value="${cliente.telefone}" /></td>
-                                    </tr>
-                                </c:forEach>
-                            </c:when>
-                            <c:otherwise>
+                        <c:if test="${not empty clientes}">
+                            <c:forEach var="cliente" items="${clientes}">
                                 <tr>
-                                    <td colspan="6" class="text-center">Nenhum cliente encontrado.</td>
+                                    <td><c:out value="${cliente.id}" /></td>
+                                    <td><c:out value="${cliente.nome}" /></td>
+                                    <td><c:out value="${cliente.cpf}" /></td>
+                                    <td><c:out value="${cliente.dataNasc}" /></td>
+                                    <td><c:out value="${cliente.telefone}" /></td>
                                 </tr>
-                            </c:otherwise>
-                        </c:choose>
+                            </c:forEach>
+                        </c:if>
+
+                        <c:if test="${empty clientes}">
+                            <tr>
+                                <td colspan="5" class="text-center">Nenhum cliente encontrado.</td>
+                            </tr>
+                        </c:if>
                     </tbody>
                 </table>
             </div>
