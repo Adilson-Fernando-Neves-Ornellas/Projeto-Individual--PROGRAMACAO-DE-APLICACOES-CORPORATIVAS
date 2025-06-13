@@ -68,7 +68,7 @@ public class ClienteDao {
         }
 
         stmt.close();
-        con.close();
+        // con.close();
 
         return cliente;
     }
