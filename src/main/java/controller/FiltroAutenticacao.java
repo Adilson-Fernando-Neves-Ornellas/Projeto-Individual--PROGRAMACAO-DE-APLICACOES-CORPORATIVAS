@@ -15,20 +15,28 @@ public class FiltroAutenticacao implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        HttpSession session = req.getSession();
         String url = req.getRequestURI();
-        String tokenId = (String) session.getAttribute("tokenId");
-        
-        if (tokenId != null)
-            chain.doFilter(request, response);
+        String contextPath = req.getContextPath(); 
 
-        String contextPath = req.getContextPath();
-        
-        if (url.equals(contextPath + "/index.jsp") || url.equals(contextPath + "/index") || url.equals(contextPath + "/login") || url.equals(contextPath + "/logout")) 
-            chain.doFilter(request, response);
-        else
-            res.sendRedirect("/projeto_adilson/index.jsp");
+        HttpSession session = req.getSession(false);
+        String tokenId = (session != null) ? (String) session.getAttribute("tokenId") : null;
 
+        boolean autenticado = (tokenId != null);
+
+        boolean isPublico = url.equals(contextPath + "/index.jsp")
+                         || url.equals(contextPath + "/index")
+                         || url.equals(contextPath + "/login")
+                         || url.equals(contextPath + "/logout")
+                         || url.startsWith(contextPath + "/css")
+                         || url.startsWith(contextPath + "/js")
+                         || url.startsWith(contextPath + "/img");
+
+        if (autenticado || isPublico) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        res.sendRedirect(contextPath + "/index.jsp"); 
     }
 
     @Override
