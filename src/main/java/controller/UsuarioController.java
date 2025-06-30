@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -14,6 +15,8 @@ import dao.UsuarioDao;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import model.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
+import com.google.gson.Gson;
 
 @WebServlet(urlPatterns = { "/usuarios", "/usuarios/cadastrar", "/usuarios/excluir" })
 public class UsuarioController extends HttpServlet {
@@ -68,10 +71,47 @@ public class UsuarioController extends HttpServlet {
         }
     }
 
-        @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        if (!"application/json".equalsIgnoreCase(request.getContentType())) {
+            response.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE, "Envio apenas via JSON.");
+            return;
+        }
+
+        BufferedReader reader = request.getReader();
+        StringBuilder jsonBuilder = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            jsonBuilder.append(line);
+        }
+
+        Gson gson = new Gson();
+        Usuario novoUsuario = gson.fromJson(jsonBuilder.toString(), Usuario.class);
+
+        UsuarioDao usuarioDao = new UsuarioDao();
+
+        try {
+            if (usuarioDao.emailExiste(novoUsuario.getEmail())) {
+                response.setStatus(HttpServletResponse.SC_CONFLICT);
+                response.setContentType("application/json");
+                response.getWriter().write("{\"erro\":\"Email já cadastrado.\"}");
+                return;
+            }
+
+            novoUsuario.setSenha(BCrypt.hashpw(novoUsuario.getSenha(), BCrypt.gensalt()));
+            usuarioDao.inserir(novoUsuario);
+
+            response.setContentType("application/json");
+            response.getWriter().write("{\"mensagem\":\"Usuário cadastrado com sucesso!\"}");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.setContentType("application/json");
+            response.getWriter().write("{\"erro\":\"Erro ao cadastrar: " + e.getMessage() + "\"}");
+        }
     }
 
 

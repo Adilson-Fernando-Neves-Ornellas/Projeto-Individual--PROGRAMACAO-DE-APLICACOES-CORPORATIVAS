@@ -44,4 +44,6 @@ Projeto realizado para a disciplina **Programação de Aplicações Corporativas
 ![print_06](docs/prints_funcionamento/print_06.png)
 ![print_07](docs/prints_funcionamento/print_07.png)
 ![print_08](docs/prints_funcionamento/print_08.png)
+![print_09](docs/prints_funcionamento/print_09.png)
+![print_10](docs/prints_funcionamento/print_10.png)
 

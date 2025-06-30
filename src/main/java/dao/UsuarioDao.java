@@ -84,4 +84,17 @@ public class UsuarioDao {
         return usuario;
     }
 
+    public boolean emailExiste(String email) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE email = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, email);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+            return false;
+        }
+    }
+
+
 }
