@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Cliente;
 
 @WebServlet("/clientes")
-public class ClienteServlet extends HttpServlet {
+public class ClienteController extends HttpServlet {
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 

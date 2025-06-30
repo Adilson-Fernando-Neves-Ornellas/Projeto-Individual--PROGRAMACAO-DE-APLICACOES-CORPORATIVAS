@@ -31,6 +31,8 @@ Projeto realizado para a disciplina **Programação de Aplicações Corporativas
 4. Edite o arquivo `deploy.bat`: na linha 11, substitua o caminho `C:\dev\apache-tomcat-10.1.39` pelo caminho da sua instalação do Tomcat.  
 5. Abra o terminal na pasta do projeto.  
 6. Execute: "./deploy.bat"
+7. Acesse no navegador a Url: http://localhost:8080/projeto_adilson/
+8. Login do usuario Adminstrador: E-mail: "admin@admin.com" e Senha: "admin123"
 
 ## ▶️ Caso não queira executar o projeto localmente, você pode conferir imagens do sistema em funcionamento:
 ![print_01](docs/prints_funcionamento/print_01.png)

@@ -26,14 +26,45 @@
             border-radius: 1rem;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
+        .login-container {
+            width: 100%;
+            display: flex;
+        }
+        .login-box {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="welcome-container">
         <div class="welcome-box">
-            <h1 class="mb-4">Bem-vindo!</h1>
+            <h1 class="mb-4">Bem-vindo, Faça seu Login!</h1>
             <p class="lead">Este é o projeto de bilheteria de <strong>Adilson Fernando Neves Ornellas</strong>.</p>
-            <a class="btn btn-primary" href="./home.jsp">Clique aqui para acessar o Administrativo da Bilheteria</a>
+                <div class="login-container">
+                <div class="login-box">
+                    <c:if test="${not empty msg}">
+                        <div class="alert alert-danger text-center" role="alert">
+                            ${msg}
+                        </div>
+                    </c:if>
+                    <form action="./login" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" name="email" id="email" class="form-control" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" name="senha" id="senha" class="form-control" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Entre e acesse o Administrativo </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -37,3 +37,17 @@ CREATE TABLE bilhetes (
     FOREIGN KEY (evento_id) REFERENCES eventos(id),
     FOREIGN KEY (compra_id) REFERENCES compras(id)
 );
+
+-- Tabela de Usuários
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+INSERT INTO usuarios (nome, email, senha) VALUES (
+    'Administrador',
+    'admin@admin.com',
+    '$2a$10$YsF4tnxnNK27Mr8hNzQemO798k4W8/.BIHd2tNwTl7iVQbR8FErYW'
+);
