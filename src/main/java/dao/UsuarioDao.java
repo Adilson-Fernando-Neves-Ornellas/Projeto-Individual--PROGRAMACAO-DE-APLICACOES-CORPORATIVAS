@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.Usuario;
 
 public class UsuarioDao {
@@ -12,6 +14,47 @@ public class UsuarioDao {
 
     public UsuarioDao() {
         con = DatabaseConnection.getConnection();
+    }
+
+    public List<Usuario> listarTodos() throws SQLException {
+        List<Usuario> usuarios = new ArrayList<>();
+        String sql = "SELECT id, nome, email FROM usuarios";
+
+        PreparedStatement stmt = con.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Usuario usuario = new Usuario();
+            usuario.setId(rs.getInt("id"));
+            usuario.setNome(rs.getString("nome"));
+            usuario.setEmail(rs.getString("email"));
+            usuarios.add(usuario);
+        }
+
+        stmt.close();
+        con.close();
+        return usuarios;
+    }
+
+    public List<Usuario> listarPorNome(String nome) throws SQLException {
+        List<Usuario> usuarios = new ArrayList<>();
+        String sql = "SELECT id, nome, email FROM usuarios WHERE LOWER(nome) LIKE ?";
+        
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, "%" + nome.toLowerCase() + "%");
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Usuario u = new Usuario();
+            u.setId(rs.getInt("id"));
+            u.setNome(rs.getString("nome"));
+            u.setEmail(rs.getString("email"));
+            usuarios.add(u);
+        }
+
+        stmt.close();
+        con.close();
+        return usuarios;
     }
 
     public void inserir(Usuario usuario) throws SQLException {

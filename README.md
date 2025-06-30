@@ -12,6 +12,7 @@ Projeto realizado para a disciplina **Programação de Aplicações Corporativas
 - ✅ Gerenciamento de Bilhetes (Somente o listar)
 - ✅ Gerenciamento de Eventos (Somente o listar e Incluir)
 - ✅ Gerenciamento de Clientes (Somente o listar e Incluir)
+- ✅ Gerenciamento de Usuarios (Somente o listar, listar com busca json e Incluir com submit em json) 
 - ✅ Gerenciamento de Compras (Somente listar, listar com busca, Incluir e exclusão)
 - 🎨 Interface responsiva com Bootstrap 5
 
