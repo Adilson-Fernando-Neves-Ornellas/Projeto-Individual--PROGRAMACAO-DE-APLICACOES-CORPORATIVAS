@@ -21,8 +21,10 @@ public class FiltroAutenticacao implements Filter {
         
         if (tokenId != null)
             chain.doFilter(request, response);
-        else
-        if (url.equals("/projeto_adilson/index.jsp") || url.equals("/projeto_adilson/login")) 
+
+        String contextPath = req.getContextPath();
+        
+        if (url.equals(contextPath + "/index.jsp") || url.equals(contextPath + "/index") || url.equals(contextPath + "/login") || url.equals(contextPath + "/logout")) 
             chain.doFilter(request, response);
         else
             res.sendRedirect("/projeto_adilson/index.jsp");

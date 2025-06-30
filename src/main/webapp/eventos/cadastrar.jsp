@@ -46,6 +46,9 @@
                 <a href="/projeto_adilson/bilhetes">🎫 Bilhetes</a>
                 <a href="/projeto_adilson/compras">🛒 Compras</a>
                 <a href="/projeto_adilson/clientes">👤 Clientes</a>
+                <a href="./usuarios">🔐 Usuários</a>
+                <hr class="border-white">
+                <a href="./logout">🔓 Sair</a>
             </div>
         </nav>
 

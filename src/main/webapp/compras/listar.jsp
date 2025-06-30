@@ -46,6 +46,9 @@
                 <a href="./bilhetes">🎫 Bilhetes</a>
                 <a href="./compras">🛒 Compras</a>
                 <a href="./clientes">👤 Clientes</a>
+                <a href="./usuarios">🔐 Usuários</a>
+                <hr class="border-white">
+                <a href="./logout">🔓 Sair</a>
             </div>
         </nav>
 
