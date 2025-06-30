@@ -12,7 +12,7 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate(); // Encerra a sessão
-        response.sendRedirect("index.jsp"); // Volta para a tela de login
+        request.getSession().invalidate(); 
+        response.sendRedirect("index.jsp");
     }
 }
