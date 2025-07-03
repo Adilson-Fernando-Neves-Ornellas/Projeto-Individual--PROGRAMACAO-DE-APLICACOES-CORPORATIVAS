@@ -48,7 +48,7 @@
                 <a href="/projeto_adilson/clientes">👤 Clientes</a>
                 <a href="/projeto_adilson/usuarios">🔐 Usuários</a>
                 <hr class="border-white">
-                <a href="./logout">🔓 Sair</a>
+                <a href="/projeto_adilson/logout">🔓 Sair</a>
             </div>
         </nav>
 
