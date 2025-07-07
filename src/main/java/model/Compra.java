@@ -9,6 +9,10 @@ public class Compra {
     private int qtdBilhete;
     private Cliente cliente;
 
+    public float calcularValorTotal() {
+        return this.valor * this.qtdBilhete;
+    }
+
     public int getId() {
         return id;
     }
